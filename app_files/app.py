@@ -23,7 +23,7 @@ def send_discord_webhook(message):
         print(f"Failed to send message. Status code: {response.status_code}, Response: {response.text}")
 
 url = 'https://www.festoolrecon.com/'
-sleep = os.environ['interval']
+sleep = int(os.environ['interval'])
 
 while True:
     response = requests.get(url)
