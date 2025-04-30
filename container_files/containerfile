@@ -1,9 +1,12 @@
 FROM registry.redhat.io/ubi9/python-312
+USER root
 
 COPY . .
 
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+RUN dnf -y install cronie
 RUN crontab crontab
 
 CMD ["crond", "-f"]
