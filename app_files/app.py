@@ -18,9 +18,10 @@ def send_discord_webhook(message):
     response = requests.post(webhook_url, json=data)
 
     if response.status_code == 204:
-        print("Message sent successfully!")
+        print(f"{time.ctime()}: Message sent successfully!")
+        print(message)
     else:
-        print(f"Failed to send message. Status code: {response.status_code}, Response: {response.text}")
+        print(f"{time.ctime()}: Failed to send message. Status code: {response.status_code}, Response: {response.text}")
 
 url = 'https://www.festoolrecon.com/'
 sleep = int(os.environ['interval'])
